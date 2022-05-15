@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
+import Login from "./components/login";
+import Courses from './components/courses';
+import Customers from './components/customers';
+import Bounuses from './components/bonuses';
+// import NavTabs from './components/tab';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <React.StrictMode>
+      <BrowserRouter>
+        <Route path='/' component={Login} exact />
+        {/* <Route path='/tab' component={NavTabs}  /> */}
+        <Route path='/courses' component={Courses} />
+        <Route path='/customers' component={Customers} />
+        <Route path='/bonuses' component={Bounuses} />
+      </BrowserRouter>
+    </React.StrictMode>
+
   );
 }
 
 export default App;
+
