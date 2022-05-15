@@ -1,20 +1,3 @@
-// import React from 'react';
-// import { useHistory } from 'react-router-dom';
-// import NavTabs from './tab';
-// const Bounuses = () => {
-//     const history = useHistory();
-//     const bonuses = () => {
-//         history.push("/bonuses")
-//     }
-//     return (
-//         <div>
-//             <NavTabs></NavTabs>
-//             <h1>bonuses</h1>
-
-//         </div>
-//     )
-// }
-// export default Bounuses;
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -29,6 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import '../../styles/managment.css'
 
 const Bounuses = React.forwardRef(function Bounuses(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;

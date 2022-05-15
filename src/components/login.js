@@ -2,8 +2,8 @@ import '../styles/log.css'
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { loginUser, createUser } from '../api/userApi'
-import NavTabs from './tab';
-// import { useNavigate } from 'react-router-dom';
+import NavTabs from '../components/tab';
+
 
 export default function Login(props) {
     const [userName, setUserName] = useState();
@@ -17,10 +17,7 @@ export default function Login(props) {
     const login = () => {
         history.push("/login")
     }
-    //  const navigate = useNavigate();
-    // // const login = () => {
-    //     navigate("/login")
-    // // }
+
     const handleSubmit = async () => {
         const user = await loginUser(userName, password);
         if (user.isManage)

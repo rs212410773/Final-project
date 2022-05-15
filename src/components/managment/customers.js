@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/managment.css';
-// import '../styles/log.css';
+import '../../styles/managment.css'
 import { useHistory } from 'react-router-dom'
-import { loginUser, createUser } from '../api/userApi'
-import NavTabs from './tab';
-//import { useNavigate } from 'react-router-dom';
+import NavTabs from '../tab';
+
 const Customers = () => {
     const history = useHistory();
     const customers = () => {
