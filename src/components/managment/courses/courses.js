@@ -9,8 +9,7 @@ import Select from '@mui/material/Select';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
-
-// import AddCategory from '../courses/category'
+import Stage from './stage'
 import AddCategory from './category'
 
 import '../../../styles/managment.css'
@@ -62,12 +61,13 @@ const Courses = () => {
                     <br></br>
                     {addCategoryShow && <AddCategory setAddCategoryShow={setAddCategoryShow}/>}
                     <br /> <br />
-                    <TextField id="outlined-number" label="Number of states" type="number"  onChange={e => setAmountStages(Number(e.target.value))}  InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
+                    <TextField id="outlined-number" label="Number of states" type="number"  onChange={e => setAmountStages(Number(e.target.value))} 
+                     InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
                     <br/><br/>
                     <Button variant="contained" startIcon={<AddIcon />} onClick={()=>setStageShow(true)}>
                         Add
                     </Button>
-                    {stageShow &&  <stage amount={amountStages} />}
+                    {stageShow &&  <Stage amount={amountStages} />}
                    
                 </div>
             </div>
