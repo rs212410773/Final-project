@@ -1,32 +1,57 @@
-import React, { useState } from 'react'
-import TextField from '@mui/material/TextField';
-import AddIcon from '@mui/icons-material/Add';
-import Button from '@mui/material/Button';
-import Lesson from './lesson';
-import '../../../styles/managment.css';
+import React, { Fragment, useState } from "react";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
 
-const Stage = ({ amount }) => {
-    const [amountLessons, setAmountLessons] = useState(false);
-    const [lessonShow, setLessonShow] = useState(false);
-    return (
-        <>
-            {[...Array(amount)].map((el, i) => (
+export default function Stage({amount}) {
+  const [rowCount, setRowCount] = useState(amount);
+  const [colCount, setColCount] = useState(3);
 
-                <div>
+  const [rowCountArray, setRowCountArray] = useState([]);
+  const [colCountArray, setColCountArray] = useState([]);
 
-                    <h2>stage</h2>
-                    <TextField id="outlined-basic" label="stage name" variant="outlined" />
-                    <TextField id="outlined-number" label="Number of Rating" type="number" />
-                    <TextField id="outlined-number" label="Number of lessons" type="number" onChange={e => setAmountLessons(Number(e.target.value))}
-                     InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
-                    <br /><br />
-                    <Button variant="contained" startIcon={<AddIcon />} onClick={() => setLessonShow(true)}>
-                        Add lesson
-                    </Button>
-                    {lessonShow && <Lesson amount={amountLessons} />}
-                </div>
+  const [showTable, setShowTable] = useState(true);
+
+  const CreateTable = () => {
+     rowCountArray.length = 0;
+     colCountArray.length = 0;
+
+    for (let i = 1; i <= rowCount; i++) {
+      rowCountArray.push(i);
+    }
+    setRowCountArray(rowCountArray);
+
+    for (let i = 1; i <= colCount; i++) {
+      colCountArray.push(i);
+    }
+    // setColCountArray(colCountArray);
+
+    // setShowTable(true);
+  }
+  
+  return (
+        <div onLoad={()=>{CreateTable()}}>  
+      
+        <Table>
+          <TableBody>
+            {rowCountArray.map((row, index) => (
+              <TableRow key={index}>
+                {colCountArray.map((col, index) => (
+                  <TableCell key={index}>
+                    Row {row} - Col {col}
+                  </TableCell>
+                ))}
+              </TableRow>
             ))}
-        </>
-    )
+          </TableBody>
+        </Table>
+
+   </div>
+  )
 }
-export default Stage;
+
+
+

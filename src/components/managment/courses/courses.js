@@ -24,8 +24,6 @@ const Courses = () => {
         history.push("/courses")
     }
 
-
-
     const handleChange = (event) => {
         setCategoryName(event.target.value);
     };
