@@ -1,10 +1,10 @@
 
-export  const GetCategory = async () => {
+export const getCategory  = async (userName, password) => {
     return fetch(`http://localhost:8000/category/`)
     .then(response => {
     
         if (response.ok && response.status == 204)
-            alert("אין קטגוריות");
+            alert(" קטגוריות אין");
         else 
             if (response.ok)
                 return response.json();                              
@@ -14,7 +14,6 @@ export  const GetCategory = async () => {
     .then(data => {
         if (data!=null) {
 
-            alert(`נמצאו קטגוריות `) 
             return data;
         }
     })
@@ -22,13 +21,13 @@ export  const GetCategory = async () => {
 
 }
 
-export const createUser = async(user) => {
-    return await fetch('http://localhost:8000/user', {
+export const createCategoryr = async(category) => {
+    return await fetch('http://localhost:8000/category', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(category)
       
     })
     .then(response => {
@@ -50,16 +49,3 @@ export const createUser = async(user) => {
     .catch(err => console.log(err))
 
 }
-
-// post<boolean>('Borrower/AthoticateUser',myUser).then(res=>{
-//     debugger
-//      alert("athorize")
-//      if(user.theData.userType==2){
-//      history.push("athoticateBank");
-//    }
-//   if(user.theData.userType==1){
-//     history.push("athoticateBorrower");
-//  }
-//   }).catch(reson=>alert('לא הצלחתנו לאתר משתמש זה ודא כי שם המשתמש והסיסמא תקינים'))
- 
-//  } 

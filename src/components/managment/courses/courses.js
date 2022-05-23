@@ -9,9 +9,9 @@ import Select from '@mui/material/Select';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
-
-// import AddCategory from '../courses/category'
-import AddCategory from './category'
+import Stage from '../courses/stage'
+import AddCategory from './category';
+import {getCategory} from '../../../api/categoryApi';
 
 import '../../../styles/managment.css'
 
@@ -20,20 +20,30 @@ const Courses = () => {
     const [addCategoryShow, setAddCategoryShow] = useState(false);
     const [amountStages, setAmountStages] = useState(false);
     const [stageShow, setStageShow] = useState(false);
+    const [categories, setCategories] = useState(false);
     const history = useHistory();
     const courses = () => {
         history.push("/courses")
     }
 
-
-
     const handleChange = (event) => {
         setCategoryName(event.target.value);
     };
+    const handleGetCategory = async () => {
+        setCategories( await getCategory());
+        if (categories){
+        categories.forEach(element => {
+             alert(element.name) 
+        });
+    } 
+         
+        
+    }
+    
     return (
-        <div>
-
+        <div onLoad={() => handleGetCategory()}>
             <NavTabs></NavTabs>
+            <button onClick={() => handleGetCategory()}>hhhhh</button>
             <div className="managment-wrap">
                 <div className="managment-html">
                     <h1>courses</h1>
@@ -47,9 +57,10 @@ const Courses = () => {
                             value={categoryName}
                             label="Cours_name"
                             onChange={handleChange}>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                        {[...Array(categories)].map((el) => (<MenuItem value={10}>{el.name}</MenuItem>))}
+                            
+                             {/* <MenuItem value={20}>Twenty</MenuItem>
+                             <MenuItem value={30}>Thirty</MenuItem> */}
                         </Select>
                     </FormControl>
                     <br /> <br /> 
@@ -67,7 +78,7 @@ const Courses = () => {
                     <Button variant="contained" startIcon={<AddIcon />} onClick={()=>setStageShow(true)}>
                         Add
                     </Button>
-                    {stageShow &&  <stage amount={amountStages} />}
+                    {stageShow &&  <Stage amount={amountStages} />}
                    
                 </div>
             </div>
