@@ -57,7 +57,7 @@ const Courses = () => {
                             value={categoryName}
                             label="Cours_name"
                             onChange={handleChange}>
-                        {[...Array(categories)].map((el) => (<MenuItem value={10}>{el.name}</MenuItem>))}
+                        {[...Array(categories)].map((el) => (<MenuItem key={el.toString()} value={10}>{el.name}</MenuItem>))}
                             
                              {/* <MenuItem value={20}>Twenty</MenuItem>
                              <MenuItem value={30}>Thirty</MenuItem> */}

@@ -34,7 +34,7 @@ const Stage = ({ amount }) => {
 
   return (
     <div onLoad={() => { CreateTable() }}>
-      {/* //    {[...Array(amount)].map((el, i) => ()} */}
+        {/* {[...Array(amount)].map((el, i) => ()} */}
 
       <Table>
         <TableBody>
