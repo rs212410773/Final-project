@@ -7,7 +7,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import FormControl from '@mui/material/FormControl';
-// import '../styles/managment.css'
 import '../../../styles/managment.css'
 
 const AddCategory = ({setAddCategoryShow}) => {
