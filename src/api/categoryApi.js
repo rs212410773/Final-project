@@ -1,4 +1,3 @@
-
 export const getCategory  = async (userName, password) => {
     return fetch(`http://localhost:8000/category/`)
     .then(response => {
@@ -21,13 +20,16 @@ export const getCategory  = async (userName, password) => {
 
 }
 
-export const createCategoryr = async(category) => {
+export const createCategory = async(category) => {
     return await fetch('http://localhost:8000/category', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(category)
+        method: 'POST', 
+        
+        headers: {
+          'Content-Type': 'application/json',
+        //   'Access-Control-Allow-Origin':'*',
+        //   'Access-Control-Allow-Methods':'POST'
+        },
+        body: JSON.stringify(category)
       
     })
     .then(response => {
@@ -49,3 +51,6 @@ export const createCategoryr = async(category) => {
     .catch(err => console.log(err))
 
 }
+
+
+  
