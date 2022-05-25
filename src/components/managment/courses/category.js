@@ -7,9 +7,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import FormControl from '@mui/material/FormControl';
-import {createCategory} from '../../../api/categoryApi'
-
-import '../../../styles/managment.css'
+import {addCategory} from '../../../api/categoryApi'
+import '../../../styles/managment.css';
 
 const AddCategory = ({ setAddCategoryShow }) => {
     const [open, setOpen] = useState(true);
@@ -24,7 +23,7 @@ const AddCategory = ({ setAddCategoryShow }) => {
     };
 
     const handleClose = async (event, reason) => {
-        const category = await createCategory(categoryName);
+        const category = await addCategory(categoryName);
         if (category)
             alert(category.name)
 

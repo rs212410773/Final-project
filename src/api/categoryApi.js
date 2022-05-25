@@ -20,7 +20,7 @@ export const getCategory  = async (userName, password) => {
 
 }
 
-export const createCategory = async(category) => {
+export const addCategory = async(category) => {
     return await fetch('http://localhost:8000/category', {
         method: 'POST', 
         

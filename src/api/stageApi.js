@@ -1,11 +1,11 @@
 
-export const addLesson = async(lesson) => {
-    return await fetch('http://localhost:8000/lesson', {
+export const addLesson = async(stage) => {
+    return await fetch('http://localhost:8000/stage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(lesson)
+      body: JSON.stringify(stage)
       
     })
     .then(response => {

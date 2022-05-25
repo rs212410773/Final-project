@@ -16,6 +16,7 @@ const Stage = ({ amount }) => {
   const [rowCountArray, setRowCountArray] = useState([]);
   const [colCountArray, setColCountArray] = useState(["name", 'order', 'parts']);
   const [addlesson, setAddlesson] = useState(false);
+  const [amountLesson, setAmountLesson] = useState(false);
 
   const CreateTable = () => {
     rowCountArray.length = 0;
@@ -36,7 +37,7 @@ const Stage = ({ amount }) => {
   useEffect(async () => {
     CreateTable();
   }, [amount]);
-  debugger;
+  
   return (
     <div >
       {/* {[...Array(amount)].map((el, i) => ()} */}
@@ -48,22 +49,22 @@ const Stage = ({ amount }) => {
             <TableRow key={index}>
               {/* {colCountArray.map((col, index) => ( */}
               <TableCell key={0}>
-                name<TextField id="outlined-basic" label="Cours_name" variant="outlined" />
+                <TextField id="outlined-basic" label="Cours_name" variant="outlined" />
               </TableCell>
               <TableCell key={1}>
-                order<TextField id="outlined-basic" label="Cours_name" variant="outlined" />
+                <TextField id="outlined-basic" label="sort" variant="outlined" />
               </TableCell>
               <TableCell key={2}>
-                <label id="outlined-basic" text="lessons" variant="outlined" />
+                
               </TableCell>
               <TableCell key={3}>
-                order<TextField id="outlined-basic" label="Cours_name" variant="outlined" />
+            <TextField id="outlined-number" label="num of lessons" type="number" onChange={e => setAmountLesson(Number(e.target.value))} 
+             InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
               </TableCell>
               <TableCell key={4}>
-                <p>add category</p>
+                <p>add lesson</p>
                 <Fab color="primary" aria-label="add" 
-                onClick={() => setAddlesson(true)}
-                >
+                onClick={() => setAddlesson(true)} >
                   <AddIcon />
                 </Fab>
               </TableCell>
@@ -74,7 +75,7 @@ const Stage = ({ amount }) => {
       </Table>
 
 
-      {addlesson && <Lesson  setAddlesson={setAddlesson}/>}
+      {addlesson && <Lesson amount={amountLesson}  setAddlesson={(e)=>{setAddlesson(e)}} />}
     </div>
   )
 }

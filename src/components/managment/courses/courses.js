@@ -80,7 +80,7 @@ const Courses = () => {
                     <br></br>
                     {addCategoryShow && <AddCategory setAddCategoryShow={(e)=>{setAddCategoryShow(e)}}/>}
                     <br /> <br />
-                    <TextField id="outlined-number" label="Number of states" type="number"  onChange={e => setAmountStages(Number(e.target.value))} 
+                    <TextField id="outlined-number" label="Number of stages" type="number"  onChange={e => setAmountStages(Number(e.target.value))} 
                      InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
                     <br/><br/>
                     <Button variant="contained" startIcon={<AddIcon />} onClick={()=>setStageShow(true)}>
