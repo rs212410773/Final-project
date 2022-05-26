@@ -85,9 +85,10 @@ const Lesson = (props) => {
               <TableCell key={1}>
                 <TextField id="outlined-basic" label="sort" variant="outlined" />
               </TableCell>
-              <TableCell key={3}>
-                <TextField id="outlined-basic" label="file uploading" variant="outlined" />
+              <TableCell key={4}>
+              <input type="file" label="file uploading"></input>
               </TableCell>
+              
               {/* <TableCell key={4}> */}
                
                 {/* <Fab color="primary" aria-label="add" 
