@@ -5,6 +5,9 @@ import Login from "./components/login";
 import Courses from './components/managment/courses/courses';
 import Customers from './components/managment/customers';
 import Bounuses from './components/managment/bonuses';
+import Exercise from './components/user/exercise';
+import Diet from './components/user/diet';
+import Instructions from './components/user/Instructions';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path='/courses' component={Courses} />
         <Route path='/customers' component={Customers} />
         <Route path='/bonuses' component={Bounuses} />
+        <Route path='/exercise' component={Exercise} />
+        <Route path='/diet' component={Diet} />
+        <Route path='/instructions' component={Instructions} />
       </BrowserRouter>
     </React.StrictMode>
 

@@ -7,13 +7,13 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import FormControl from '@mui/material/FormControl';
-import {addLesson} from '../../../api/lessonApi';
-import Stage from '../../managment/courses/stage';
+import {addLesson} from '../../../api/managment/lessonApi';
+// import Stage from '../../managment/courses/stage';
 import AddIcon from '@mui/icons-material/Add';
 import '../../../styles/managment.css';
 import { TableBody } from '@mui/material';
 import { TableRow, TableCell, Table } from '@mui/material';
-import { ColCountByScreen } from 'devextreme-react/data-grid';
+// import { ColCountByScreen } from 'devextreme-react/data-grid';
 import Fab from '@mui/material/Fab';
 
 
