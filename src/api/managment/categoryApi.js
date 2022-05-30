@@ -26,9 +26,11 @@ export const addCategory = async(category) => {
         
         headers: {
           'Content-Type': 'application/json',
-        //   'Access-Control-Allow-Origin':'*',
+          'Access-Control-Allow-Origin':'http://localhost:3000',
         //   'Access-Control-Allow-Methods':'POST'
+       
         },
+        // headers.append('Access-Control-Allow-Origin', ),
         body: JSON.stringify(category)
       
     })
