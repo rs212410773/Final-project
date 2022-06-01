@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Stage from './components/managment/courses/stage'
 
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-
+    {/* <Stage amount={4}></Stage> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

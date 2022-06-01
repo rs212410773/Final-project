@@ -1,7 +1,7 @@
 import '../styles/log.css'
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { loginUser, createUser } from '../api/userApi'
+import { loginUser, createUser } from '../api/user/userApi'
 import NavTabs from '../components/tab';
 
 

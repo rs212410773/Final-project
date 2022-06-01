@@ -33,8 +33,7 @@ export const createUser = async(user) => {
     })
     .then(response => {
         console.log(response);
-     debugger;
-     alert(`ggg`)
+     
         if (response.ok){
             console.log(`ok`)
             return response.json();
@@ -44,7 +43,7 @@ export const createUser = async(user) => {
     })
     .then(data => {
         if (data!=null) {
-            alert(`${JSON.stringify(data)}`)
+            alert(`hellow to:${JSON.stringify(data.firstName+' '+data.lastName)}`)
         }
     })
     .catch(err => console.log(err))
