@@ -11,7 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import Stage from './stage'
 import AddCategory from './category';
-import {getCategory} from '../../../api/categoryApi';
+import { getCategory } from '../../../api/categoryApi';
 
 import '../../../styles/managment.css'
 
@@ -30,16 +30,17 @@ const Courses = () => {
         setCategoryName(event.target.value);
     };
     const handleGetCategory = async () => {
-        setCategories( await getCategory());
-        if (categories){
-        categories.forEach(element => {
-             alert(element.name) 
-        });
-    } 
-         
-        
+        setCategories(await getCategory());
+        if (categories) {
+            console.log(categories);
+            categories.forEach(element => {
+                alert(element.name)
+            });
+        }
+
+
     }
-    
+
     return (
         <div onLoad={() => handleGetCategory()}>
             <NavTabs></NavTabs>
@@ -57,30 +58,30 @@ const Courses = () => {
                             value={categoryName}
                             label="Cours_name"
                             onChange={handleChange}>
-                        {[...Array(categories)].map((el) => (<MenuItem value={10}>{el.name}</MenuItem>))}
-                            
-                             {/* <MenuItem value={20}>Twenty</MenuItem>
+                            {[...Array(categories)].map((el) => (<MenuItem value={10}>{el.name}</MenuItem>))}
+
+                            {/* <MenuItem value={20}>Twenty</MenuItem>
                              <MenuItem value={30}>Thirty</MenuItem> */}
                         </Select>
                     </FormControl>
-                    <br /> <br /> 
+                    <br /> <br />
                     <p>add category</p>
                     <Fab color="primary" aria-label="add" onClick={() => setAddCategoryShow(true)}>
-                        
+
                         <AddIcon />
                     </Fab>
-                   
+
                     <br></br>
-                    {addCategoryShow && <AddCategory setAddCategoryShow={setAddCategoryShow}/>}
+                    {addCategoryShow && <AddCategory setAddCategoryShow={setAddCategoryShow} />}
                     <br /> <br />
-                    <TextField id="outlined-number" label="Number of states" type="number"  onChange={e => setAmountStages(Number(e.target.value))} 
-                     InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
-                    <br/><br/>
-                    <Button variant="contained" startIcon={<AddIcon />} onClick={()=>setStageShow(true)}>
+                    <TextField id="outlined-number" label="Number of states" type="number" onChange={e => setAmountStages(Number(e.target.value))}
+                        InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
+                    <br /><br />
+                    <Button variant="contained" startIcon={<AddIcon />} onClick={() => setStageShow(true)}>
                         Add
                     </Button>
-                    {stageShow &&  <Stage amount={amountStages} />}
-                   
+                    {stageShow && <Stage amount={amountStages} />}
+
                 </div>
             </div>
         </div>
