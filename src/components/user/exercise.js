@@ -7,6 +7,8 @@ const Exercise = () => {
         <div>
         <NavTabs></NavTabs>
         <h1>Exercise</h1>
+
+        
         </div>
     )
 }
