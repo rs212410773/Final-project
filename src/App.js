@@ -8,13 +8,14 @@ import Bounuses from './components/managment/bonuses';
 import Exercise from './components/user/exercise';
 import Diet from './components/user/diet';
 import Instructions from './components/user/Instructions';
-
+import AboutUs from './components/aboutUs'
 function App() {
   return (
 
     <React.StrictMode>
       <BrowserRouter>
         <Route path='/' component={Login} exact />
+        <Route path='/aboutUs' component={AboutUs} />
         <Route path='/courses' component={Courses} />
         <Route path='/customers' component={Customers} />
         <Route path='/bonuses' component={Bounuses} />
