@@ -1,12 +1,12 @@
 import React from "react"
 import NavTabs from "./tabUser";
 
-const Diet = () => {
+const HomeUser = () => {
 
     return(
         <div>
-            <NavTabs></NavTabs>
-            <h1>Diet</h1>
+           
+            <h1>hellow </h1>
         </div>
     )
 }

@@ -4,15 +4,28 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Stage from './components/managment/courses/stage'
+import { createStore,applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { reducer  } from 'redux-form';
+import thunk from 'redux-thunk'
 
-
+const store = createStore(reducer, applyMiddleware(thunk));
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-    {/* <Stage amount={4}></Stage> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//     {/* <Stage amount={4}></Stage> */}
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,16 +1,16 @@
 import React from "react"
 
-import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import CakeIcon from '@mui/icons-material/Cake';
-import ChairAltIcon from '@mui/icons-material/ChairAlt';
-import ChatIcon from '@mui/icons-material/Chat';
-import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
-import DiningIcon from '@mui/icons-material/Dining';
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
-import GirlIcon from '@mui/icons-material/Girl';
-import NoFoodIcon from '@mui/icons-material/NoFood';
+// import SportsVolleyballIcon from '@mui/icons-material/Sp';
+// import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+// import AccessTimeIcon from '@mui/icons-material/AccessTime';
+// import CakeIcon from '@mui/icons-material/Cake';
+// import ChairAltIcon from '@mui/icons-material/ChairAlt';
+// import ChatIcon from '@mui/icons-material/Chat';
+// import ChildFriendlyIcon from '@mui/icons-material/ChildFriendly';
+// import DiningIcon from '@mui/icons-material/Dining';
+// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+// import GirlIcon from '@mui/icons-material/Girl';
+// import NoFoodIcon from '@mui/icons-material/NoFood';
 const AboutUs = () => {
 
     return (
@@ -18,7 +18,7 @@ const AboutUs = () => {
 
             <h1>about us</h1>
 
-            <SportsVolleyballIcon></SportsVolleyballIcon>
+            {/* <SportsVolleyballIcon></SportsVolleyballIcon>
             <FitnessCenterIcon></FitnessCenterIcon>
             <AccessTimeIcon></AccessTimeIcon>
             <CakeIcon></CakeIcon>
@@ -28,7 +28,7 @@ const AboutUs = () => {
             <DiningIcon></DiningIcon>
             <FamilyRestroomIcon></FamilyRestroomIcon>
             <GirlIcon></GirlIcon>
-            <NoFoodIcon></NoFoodIcon>
+            <NoFoodIcon></NoFoodIcon> */}
             <p>
                 <h2>Very pleasant, if we have not yet met:</h2>
                 My name is Sagit Belson<br/>
