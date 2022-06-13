@@ -23,9 +23,9 @@ export default function Login(props) {
         if (user.isManage)
             alert(`hellow manager`);
         if (user)
-        history.push("/Courses")
-            
-        
+            history.push("/Courses")
+
+
     }
 
     const handleSubmitCreate = async () => {
@@ -46,7 +46,7 @@ export default function Login(props) {
 
     return (
         <div className="login-wrap">
-            
+
             <div className="login-html">
                 <input id="tab-1" type="radio" name="tab" className="sign-in" /><label htmlFor="tab-1" className="tab">Sign In</label>
                 <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Sign Up</label>
@@ -114,6 +114,7 @@ export default function Login(props) {
                         {/* </form> */}
                     </div>
                 </div>
+                
             </div>
 
         </div>
