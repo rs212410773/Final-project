@@ -12,38 +12,38 @@ import Button from '@mui/material/Button';
 import Stage from './stage'
 import AddCategory from './category';
 
+
 import { getCategory } from '../../../api/managment/categoryApi';
 
 
 import '../../../styles/managment.css'
 
 const Courses = () => {
-    const [categoryName, setCategoryName] = useState('');
+    const [CategoryName, setCategoryName] = useState('');
     const [addCategoryShow, setAddCategoryShow] = useState(false);
-    const [amountStages, setAmountStages] = useState(false);
+    const [amountStages, setAmountStages] = useState(1);
     const [stageShow, setStageShow] = useState(false);
     const [categories, setCategories] = useState([]);
     const history = useHistory();
     const courses = () => {
         history.push("/courses")
     }
+
     const handleChange = (event) => {
+        debugger
         setCategoryName(event.target.value);
     };
-    const handleGetCategory = async () => {
+    useEffect(() => {
+        async function fetchMyAPI() {
+            const response = await getCategory()
+            setCategories(response)
+            }
+      fetchMyAPI()
+    },[], categories)
 
-        setCategories(await getCategory());
-        if (categories) {
-            console.log(categories);
-            categories.forEach(element => {
-                alert(element.name)
-            });
-        }
-    }
     return (
-        <div onLoad={() => handleGetCategory()}>
+        <div>
             <NavTabs></NavTabs>
-
             <div className="managment-wrap">
                 <div className="managment-html">
                     <h1>courses</h1>
@@ -51,18 +51,20 @@ const Courses = () => {
                     <br /> <br />
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Category name</InputLabel>
+                        {
+                            categories&&
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={categoryName}
+                            value={CategoryName}
                             label="Cours_name"
                             onChange={handleChange}>
 
-                            {[...Array(categories)].map((el) => (<MenuItem value={10}>{el.name}</MenuItem>))}
-
-                            {/* <MenuItem value={20}>Twenty</MenuItem>
-                             <MenuItem value={30}>Thirty</MenuItem> */}
+                            {categories.map((el) => (<MenuItem value={el.categoryName} key={el.categoryName}>{el.categoryName}</MenuItem>))}
+                         
                         </Select>
+    
+                        }
                     </FormControl>
                     <br /> <br />
 
@@ -77,7 +79,7 @@ const Courses = () => {
                     {addCategoryShow && <AddCategory setAddCategoryShow={setAddCategoryShow} />}
                     <br /> <br />
                     <TextField id="outlined-number" label="Number of states" type="number" onChange={e => setAmountStages(Number(e.target.value))}
-                        InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
+                        InputProps={{ inputProps: { min: "1", max: "10", step: "1" },value:1 }}  />
                     <br /><br />
                     <Button variant="contained" startIcon={<AddIcon />} onClick={() => setStageShow(true)}>
 

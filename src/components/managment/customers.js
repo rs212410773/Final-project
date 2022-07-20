@@ -1,58 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import '../../styles/managment.css'
-import { useHistory } from 'react-router-dom'
-import NavTabs from '../tab';
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import { Bar } from 'react-chartjs-2';
+import { UserData } from './userData';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
-const Customers = () => {
-    const history = useHistory();
-    const customers = () => {
-        history.push("/Customers")
-    }
-    const [name, setName] = useState();
-    const [category, setCategory] = useState();
-    const [stage, setStage] = useState();
-    return (
-        <body>
-            <NavTabs></NavTabs>
-            <h1>customers</h1>
-            <div className="login-wrap">
+const BarChart = () => { 
 
-                <div className="login-html">
-                    <input id="tab-1" type="radio" name="tab" className="sign-in" /><label htmlFor="tab-1" className="tab">Sign In</label>
-                    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">Sign Up</label>
-                    <div className="login-form">
+class Customers extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {
+        labels: UserData.map((o) => o.year),
+        datasets: [
+          {
+            label: 'Users Gained',
+            backgroundColor: 'rgba(0, 255, 0, 0.2)',
+            borderColor: 'rgb(0, 255, 0)',
+            borderWidth: 1,
+            data: UserData.map((o) => o.userGain),
+          },
+        ],
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Bar Chart',
+          },
+        },
+      },
+    };
+  }
 
-                        <div className="sign-up-htm">
-
-                        
-                            <div className="group">
-                                <label htmlFor="user" className="label">corse name</label>
-                                <input id="user" className="input" type={"text"} onChange={e => setName(e.target.value)} />
-                            </div>
-                            <div className="group">
-                                <label htmlFor="user" className="label">Last name</label>
-                                <input id="user" className="input" type={"text"} onChange={e => setCategory(e.target.value)} />
-                            </div>
-                            <div className="group">
-                                <label htmlFor="pass" className="label">User name</label>
-                                <input id="pass" className="input" type={"text"} onChange={e => setStage(e.target.value)} />
-                            </div>
-                            <div className="group">
-                                <input type="submit" className="button" value="Sign Up" />
-                            </div>
-                            <div className="hr"></div>
-
-                            <div className="foot-lnk">
-                                <label htmlFor="tab-1">  Member?</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            )
-        </body>
-
-    )
+  render() {
+    return <Bar data={this.state.data} options={this.state.options} />;
+  }
 }
-export default Customers;
+
+render(<Customers />, document.getElementById('root'));
+
+}
+export default BarChart;
+// import React from "react";
+// import NavTabs  from '../tab';
+// const Customers=()=>{
+//     return(
+//         <div>
+//         <h1>Customers</h1>
+//         <NavTabs></NavTabs>
+//         </div>
+//     )
+// }
+// export default Customers;

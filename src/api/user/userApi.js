@@ -22,18 +22,40 @@ export const loginUser = async (userName, password) => {
 
 }
 
+export const getUsers = async () => {
+    return fetch(`http://localhost:8000/user/`)
+    .then(response => {
+        if (response.ok && response.status == 204)
+          console.log("no users")
+        else 
+            if (response.ok)
+                return response.json();                              
+            else
+                throw new Error(response.status);
+    })
+    .then(data => {
+        if (data!=null) {
+          console.log({data})
+            return data;
+        }
+    })
+    .catch(err => console.log(err))
+
+}
+
+
 export const createUser = async(user) => {
     return await fetch('http://localhost:8000/user', {
+    //  mode: 'no-cors',
       method: 'POST',
+
       headers: {
         'Content-Type': 'application/json'
       },
       
       body: JSON.stringify(user)
       
-    }) 
-        
-                    
+    })              
     .then(response => {
         console.log(response);
      

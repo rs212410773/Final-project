@@ -16,9 +16,8 @@ function LinkTab(props) {
     />
   );
 }
-export default function NavTabs(props) {
+const NavTabs = (props) => {
   const [value, setValue] = React.useState(0);
-  
 //   const history = useHistory();
 //   const tab = () => {
 //       history.push("/tab")
@@ -37,3 +36,4 @@ export default function NavTabs(props) {
     </Box>
   );
 }
+export default NavTabs;

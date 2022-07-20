@@ -14,9 +14,9 @@ const AddCategory = ({ setAddCategoryShow }) => {
     const [open, setOpen] = useState(true);
     const [categoryName, setCategoryName] = useState('');
 
-    const handleChange = (event) => {
-        setCategoryName(event.target.value || '');
-    };
+    // const handleChange = (event) => {
+    //     setCategoryName(event.target.value || '');
+    // };
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -34,15 +34,13 @@ const AddCategory = ({ setAddCategoryShow }) => {
         }};
         return (
             <div>
-                {/* <Button onClick={handleClickOpen}>Open select dialog</Button> */}
-                <h1>hhhhhhhhhhhhhh</h1>
                 <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
                     <DialogTitle>Fill the form</DialogTitle>
                     <DialogContent>
                         <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
                             <FormControl sx={{ m: 1, minWidth: 120 }}>
                                 {/* <InputLabel htmlFor="demo-dialog-native">Age</InputLabel> */}
-                                <TextField id="outlined-basic" label="Category_name" variant="outlined" onChange={handleChange} />
+                                <TextField id="outlined-basic" label="Category_name" variant="outlined" onChange={e => setCategoryName(e.target.value)}/>
 
                             </FormControl>
 

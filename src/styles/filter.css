@@ -1,0 +1,18 @@
+.div{
+    width: 10%;
+    /* border: 10px; */
+    position: absolute;
+    right: 0;
+    /* width: 100px; */
+    height: 100%;
+    border: 3px solid rgb(194, 197, 197);
+    background-color: rgb(219, 219, 229);
+
+}
+/* div.b {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 120px;
+    border: 3px solid blue;
+  }  */

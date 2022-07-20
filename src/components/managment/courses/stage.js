@@ -48,20 +48,20 @@ const Stage = ({ amount }) => {
           
             <TableRow key={index}>
               {/* {colCountArray.map((col, index) => ( */}
-              <TableCell key={0}>
+              <TableCell key={index}>
                 <TextField id="outlined-basic" label="Cours_name" variant="outlined" />
               </TableCell>
-              <TableCell key={1}>
+              <TableCell key={index}>
                 <TextField id="outlined-basic" label="sort" variant="outlined" />
               </TableCell>
-              <TableCell key={2}>
+              <TableCell key={index}>
                 
               </TableCell>
-              <TableCell key={3}>
+              <TableCell key={index}>
             <TextField id="outlined-number" label="num of lessons" type="number" onChange={e => setAmountLesson(Number(e.target.value))} 
              InputProps={{ inputProps: { min: "0", max: "10", step: "1" } }} />
               </TableCell>
-              <TableCell key={4}>
+              <TableCell key={index}>
                 <p>add lesson</p>
                 <Fab color="primary" aria-label="add" 
                 onClick={() => setAddlesson(true)} >

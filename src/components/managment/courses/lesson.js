@@ -79,13 +79,13 @@ const Lesson = (props) => {
           
             <TableRow key={index}>
               {/* {colCountArray.map((col, index) => ( */}
-              <TableCell key={0}>
+              <TableCell key={index}>
                 <TextField id="outlined-basic" label="lesson_name" variant="outlined" />
               </TableCell>
-              <TableCell key={1}>
+              <TableCell key={index}>
                 <TextField id="outlined-basic" label="sort" variant="outlined" />
               </TableCell>
-              <TableCell key={4}>
+              <TableCell key={index}>
               <input type="file" label="file uploading"></input>
               </TableCell>
               
