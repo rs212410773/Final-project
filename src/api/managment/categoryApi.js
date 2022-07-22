@@ -20,15 +20,15 @@ export const getCategory = async () => {
 
 
 export const addCategory = async (categoryName) => {
-    debugger
+    
     return await fetch('http://localhost:8000/category/', {
-       mode: 'cors',
+
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
        },
        
-       body: JSON.stringify(categoryName)
+       body: JSON.stringify(categoryName={categoryName})
        
           })
         .then(response => {

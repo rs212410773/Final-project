@@ -1,4 +1,5 @@
 
+
 export const addLesson = async(lesson) => {
     return await fetch('http://localhost:8000/lesson', {
       method: 'POST',
@@ -25,4 +26,25 @@ export const addLesson = async(lesson) => {
     .catch(err => console.log(err))
 
 }
+
+export const getLesson = async () => {
+    return await fetch(`http://localhost:8000/lesson/`)
+       .then(response => {
+           if (response.ok && response.status == 204)
+               alert(" קטגוריות אין");
+           else
+               if (response.ok)
+                   return response.json();
+               else
+                   throw new Error(response.status);
+       })
+       .then(data => {
+           if (data != null) {
+               return data;
+           }
+       })
+       .catch(err => console.log(err))
+
+}
+
 

@@ -17,9 +17,6 @@ const Stage = ({ amount }) => {
   const [colCountArray, setColCountArray] = useState(["name", 'order', 'parts']);
   const [addlesson, setAddlesson] = useState(false);
   const [amountLesson, setAmountLesson] = useState(false);
-  const [sort, setSort] = useState('');
-  const [stageName, setStageName] = useState('');
-
 
   const CreateTable = () => {
     rowCountArray.length = 0;
@@ -40,7 +37,7 @@ const Stage = ({ amount }) => {
   useEffect(async () => {
     CreateTable();
   }, [amount]);
-
+  
   return (
     <div >
       {/* {[...Array(amount)].map((el, i) => ()} */}
@@ -48,20 +45,17 @@ const Stage = ({ amount }) => {
       <Table>
         <TableBody>
           {rowCountArray.map((row, index) => (
-
+          
             <TableRow key={index}>
               {/* {colCountArray.map((col, index) => ( */}
               <TableCell key={index}>
-                <TextField id="outlined-basic" label="Stage_name" variant="outlined"
-                  onChange={e => setStageName(e.target.value)}
-                />
+                <TextField id="outlined-basic" label="Cours_name" variant="outlined" />
               </TableCell>
               <TableCell key={index}>
-                <TextField id="outlined-basic" label="sort" variant="outlined"
-                  onChange={e => setSort(e.target.value)} />
+                <TextField id="outlined-basic" label="sort" variant="outlined" />
               </TableCell>
               <TableCell key={index}>
-
+                
               </TableCell>
               {/* <TableCell key={index}>
             <TextField id="outlined-number" label="num of lessons" type="number" onChange={e => setAmountLesson(Number(e.target.value))} 
@@ -69,8 +63,8 @@ const Stage = ({ amount }) => {
               </TableCell> */}
               <TableCell key={index}>
                 <p>add lesson</p>
-                <Fab color="primary" aria-label="add"
-                  onClick={() => setAddlesson(true)} >
+                <Fab color="primary" aria-label="add" 
+                onClick={() => setAddlesson(true)} >
                   <AddIcon />
                 </Fab>
               </TableCell>
@@ -81,8 +75,8 @@ const Stage = ({ amount }) => {
       </Table>
 
 
-      {addlesson && <Lesson
-      stageName={stageName} stageSort={sort}
+      {addlesson && <Lesson 
+      // amount={amountLesson}  setAddlesson={(e)=>{setAddlesson(e)}} 
       />}
     </div>
   )

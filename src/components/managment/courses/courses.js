@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
-import NavTabs from '../../tab';
+import NavTabs from '../tab';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,8 +30,8 @@ const Courses = () => {
     }
 
     const handleChange = (event) => {
-        debugger
         setCategoryName(event.target.value);
+
     };
     useEffect(() => {
         async function fetchMyAPI() {
@@ -79,7 +79,7 @@ const Courses = () => {
                     {addCategoryShow && <AddCategory setAddCategoryShow={setAddCategoryShow} />}
                     <br /> <br />
                     <TextField id="outlined-number" label="Number of states" type="number" onChange={e => setAmountStages(Number(e.target.value))}
-                        InputProps={{ inputProps: { min: "1", max: "10", step: "1" },value:1 }}  />
+                        InputProps={{ inputProps: { min: "1", max: "10", step: "1" } }}  />
                     <br /><br />
                     <Button variant="contained" startIcon={<AddIcon />} onClick={() => setStageShow(true)}>
 

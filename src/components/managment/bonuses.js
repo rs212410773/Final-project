@@ -12,7 +12,9 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
-import '../../styles/managment.css'
+import '../../styles/managment.css';
+import NavTabs from './tab';
+
 
 const Bounuses = React.forwardRef(function Bounuses(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -31,6 +33,7 @@ export default function FullScreenDialog() {
 
   return (
     <div>
+      <NavTabs></NavTabs>
       <Button variant="outlined" onClick={handleClickOpen}>
         Open full-screen dialog
       </Button>

@@ -80,7 +80,7 @@ export default function Login(props) {
                     <div className="sign-up-htm" >
                         <div className="group">
                             <label htmlFor="user" className="label">First name</label>
-                            <input id="user" className="input" type={"text"} onChange={e => setFirstName(e.target.value)} />
+                            <input id="user" className="input" type={"text"}lessonName />
                         </div>
                         <div className="group">
                             <label htmlFor="user" className="label">Last name</label>

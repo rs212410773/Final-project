@@ -2,8 +2,9 @@ import React from "react"
 import Filter from "./filter";
 import Videos from './videos';
 // import VideoPortal from './videos';
-import Video from './video'
+// import Video from './video'
 import App from './app'
+import VideoPlayer from './video'
 
 const HomeUser = () => {
 
@@ -15,7 +16,13 @@ const HomeUser = () => {
             {/* <App></App> */}
             {/* <Videos></Videos> */}
             {/* <VideoPortal></VideoPortal> */}
-            <Video></Video> 
+            {/* <Video></Video>  */}
+            <VideoPlayer
+        src="https://stream.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/high.mp4"
+        poster="https://image.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/thumbnail.png"
+        >
+            
+        </VideoPlayer>
         </div>
 
     )

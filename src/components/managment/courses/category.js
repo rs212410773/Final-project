@@ -24,9 +24,6 @@ const AddCategory = ({ setAddCategoryShow }) => {
 
     const handleClose = async (event, reason) => {
         const category = await addCategory(categoryName);
-        if (category)
-            alert(category.name)
-
         if (reason !== 'backdropClick') {
             setOpen(false);
             setAddCategoryShow(false)
