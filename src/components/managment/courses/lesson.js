@@ -18,7 +18,18 @@ import FormControl from '@mui/material/FormControl';
 import '../../../styles/managment.css';
 import { TableRow, TableCell, Table } from '@mui/material';
 import { addLesson } from '../../../api/managment/lessonApi';
-import {addStage} from '../../../api/managment/stageApi';
+import { addStage } from '../../../api/managment/stageApi';
+import '../../../styles/uploadingFile.css';
+import { Input } from '@mui/material';
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    },
+    input: {
+        display: 'none',
+    },
+});
 
 
 const Lesson = (props) => {
@@ -29,20 +40,31 @@ const Lesson = (props) => {
     // const [lessonName, setLessonName] = useState('');
     const [sort, setSort] = useState('');
     const [add, setAdd] = useState(false);
+    const [newArrary, setNewArrary] = useState(true);
+    const [numLesson, setnumLesson] = useState(1);
+    const [num, setNum] = useState(["a"]);
 
+    const handleFileUploadError = (error) => {
+        // Do something...
+    }
+    const fileLoading = () => {
+        alert("ssa")
+
+
+    }
+    const handleFilesChange = (files) => {
+        // Do something...
+    }
 
 
     const addNewLesson = async () => {
-        debugger;
-        setAdd(true)
+        // setnumLesson(numLesson => numLesson + 1)
+        setNewArrary(false);
+        setNum([...num, "b"]);
+      debugger
         await setLesson([...lessons, { lessonName, sort }])
-        setAdd(true);
-        // const lesson = {
-        //     name: lessonName,
-        //     lessonNumber: sort,
-        //     // stageId:stageId
-        // }
-        // const insertLesson = await addLesson(lesson);
+        debugger
+        // setAdd(true);
     }
     const handleChange = (event) => {
         setLessonName(event.target.value || '');
@@ -52,37 +74,32 @@ const Lesson = (props) => {
         setOpen(true);
     };
 
+
+
     const handleClose = async (event, reason) => {
-        // const Lesson = await addLesson(lessonName);
-        // if (Lesson)
-        //     alert(Lesson.name)
         if (reason !== 'backdropClick') {
             setOpen(false);
             const newStage = {
                 name: props.stageName,
                 stageNumber: props.stageSort,
             }
+            if (newArrary == true) {
+               
+                setLesson([...lessons, { lessonName, sort }]);
+            }
             const insertStage = await addStage(newStage);
-            
-     
-            alert((insertStage._id));
-            debugger;
-            const id=insertStage._id;
-            // alert(insertStage.name)
-            // alert(insertStage._id)
-debugger
+            const id = insertStage._id;
             lessons.map(async (l) => {
+                debugger;
                 const newLesson = {
                     name: l.lessonName,
                     lessonNumber: l.sort,
-                    stageId:id
+                    stageId: id
                 }
+                
                 const insertLesson = await addLesson(newLesson);
                 alert(insertLesson.name)
             })
-
-            // props.setAddlesson(false)
-
 
         }
     };
@@ -97,9 +114,54 @@ debugger
                         <FormControl sx={{ m: 1, minWidth: 120 }}>
                             <div>
                                 <h3>Lesson</h3>
+
                                 <Table>
                                     <TableBody>
-                                        <TableRow>
+                                        {num.map((row, index) => (
+                                            <TableRow key={index}>
+                                                <TableCell key={index}>
+                                                    <TextField id="outlined-basic" label="Lesson_name" variant="outlined"
+                                                        onChange={e => setLessonName(e.target.value)} />
+                                                </TableCell>
+                                                <TableCell key={index}>
+                                                    <TextField id="outlined-basic" label="sort" variant="outlined"
+                                                        onChange={e => setSort(e.target.value)}
+                                                    />
+                                                </TableCell >
+                                                <Input key={index} type="file" onChange={(e) => fileLoading(e)}></Input>
+                                                <TableCell key={index}>
+                                                    <p>Add Lesson</p>
+                                                    <Fab color="primary" aria-label="add"
+                                                        onClick={addNewLesson} >
+                                                        <AddIcon />
+                                                    </Fab>
+                                                </TableCell>
+                                            </TableRow>
+                                            // <TableRow key={index}>
+
+                                            //     <TableCell key={index}>
+                                            //         <TextField id="outlined-basic" label="Stage_name" variant="outlined"
+                                            //             onChange={e => setStageName(e.target.value)}
+                                            //         />
+                                            //     </TableCell>
+                                            //     <TableCell key={index}>
+                                            //         <TextField id="outlined-basic" label="sort" variant="outlined"
+                                            //             onChange={e => setSort(e.target.value)} />
+                                            //     </TableCell>
+
+                                            //     <TableCell key={index}>
+                                            //         <p>add lesson</p>
+                                            //         <Fab color="primary" aria-label="add"
+                                            //             onClick={() => setAddlesson(true)} >
+                                            //             <AddIcon />
+                                            //         </Fab>
+                                            //     </TableCell>
+                                            //     {/* ))} */}
+                                            // </TableRow>
+                                        ))}
+
+
+                                        {/* <TableRow>
                                             <TableCell >
                                                 <TextField id="outlined-basic" label="Lesson_name" variant="outlined"
                                                     onChange={e => setLessonName(e.target.value)} />
@@ -109,9 +171,7 @@ debugger
                                                     onChange={e => setSort(e.target.value)}
                                                 />
                                             </TableCell>
-                                            <TableCell>
-
-                                            </TableCell>
+                                            <Input type="file" onChange={(e)=>fileLoading(e)}></Input>
                                             <TableCell>
                                                 <p>Add Lesson</p>
                                                 <Fab color="primary" aria-label="add"
@@ -119,34 +179,7 @@ debugger
                                                     <AddIcon />
                                                 </Fab>
                                             </TableCell>
-
-                                            {/* ))} */}
-                                        </TableRow>
-                                        {add &&
-                                            <TableRow>
-                                                <TableCell >
-                                                    <TextField id="outlined-basic" label="Lesson_name" variant="outlined"
-                                                        onChange={e => setLessonName(e.target.value)} />
-                                                </TableCell>
-                                                <TableCell>
-                                                    <TextField id="outlined-basic" label="sort" variant="outlined"
-                                                        onChange={e => setSort(e.target.value)}
-                                                    />
-                                                </TableCell>
-                                                <TableCell>
-
-                                                </TableCell>
-                                                <TableCell>
-                                                    <p>Add Lesson</p>
-                                                    <Fab color="primary" aria-label="add"
-                                                        onClick={addNewLesson}
-                                                    >
-                                                        <AddIcon />
-                                                    </Fab>
-                                                </TableCell>
-
-                                            </TableRow>
-                                        }
+                                        </TableRow> */}
                                     </TableBody>
                                 </Table>
 
@@ -161,9 +194,10 @@ debugger
                 </DialogActions>
             </Dialog>
 
-        </div>
+        </div >
     );
 
 }
+
 export default Lesson;
 

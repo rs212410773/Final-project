@@ -1,18 +1,22 @@
-import React, { useEffect,useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import video from '../../video/video.mp4';
 import mux from "mux-embed";
 import Videos from "./videos";
 import MusicCard from './musicBar';
+import { height } from "@mui/system";
+import '../../styles/video.css'
+
 
 export default function VideoPlayer({ src, poster }) {
     const videoRef = useRef(null);
     const [open, setOpen] = useState(false);
+    const [show, setShow] = useState(true);
 
 
-const handleClick=()=>{
-    alert("aaa")
-setOpen(true)
-}
+    const handleClick = () => {
+        setOpen(true)
+        setShow(false)
+    }
 
     // useEffect(() => {
     //     const video = videoRef.current;
@@ -34,12 +38,15 @@ setOpen(true)
     // }, [src, videoRef]);
 
     return (
-       
-    
+
+
         <>
-            <video controls ref={videoRef} poster={poster} src={src} onClick={handleClick}/>
-            {open&&
-            <MusicCard src={src}></MusicCard>
+            {show &&
+                <video className="card" controls ref={videoRef} poster={poster} src={src} onClick={handleClick} />
+            }
+
+            {open &&
+                <MusicCard src={src}></MusicCard>
             }
         </>
     );

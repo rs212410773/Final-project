@@ -4,7 +4,10 @@ import Videos from './videos';
 // import VideoPortal from './videos';
 // import Video from './video'
 import App from './app'
-import VideoPlayer from './video'
+import VideoPlayer from './video';
+import video from '../../video/video.mp4';
+import videoImg from '../../video/video.png';
+
 
 const HomeUser = () => {
 
@@ -18,8 +21,8 @@ const HomeUser = () => {
             {/* <VideoPortal></VideoPortal> */}
             {/* <Video></Video>  */}
             <VideoPlayer
-        src="https://stream.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/high.mp4"
-        poster="https://image.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/thumbnail.png"
+        src={"https://stream.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/high.mp4"}
+        poster={"https://image.mux.com/YCOWHqIUho00zXdMZjeqWoCslXG9MFqIC/thumbnail.png"}
         >
             
         </VideoPlayer>

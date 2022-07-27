@@ -1,5 +1,3 @@
-
-
 export const addStage = async(stage) => {
     return await fetch('http://localhost:8000/stage', {
       method: 'POST',
@@ -10,9 +8,11 @@ export const addStage = async(stage) => {
       
     })
     .then(response => {
+        
         console.log(response);
         if (response.ok){
             console.log(`ok`)
+            debugger;
             return response.json();
             }
         else
@@ -20,7 +20,8 @@ export const addStage = async(stage) => {
     })
     .then(data => {
         if (data!=null) {
-            alert(`${JSON.stringify(data)}`)
+           console(`${JSON.stringify(data)}`)
+            return data;
         }
     })
     .catch(err => console.log(err))
@@ -28,16 +29,11 @@ export const addStage = async(stage) => {
 }
 
 
-
-
-
-
-
 export const getStage = async () => {
     return await fetch(`http://localhost:8000/stage/`)
        .then(response => {
            if (response.ok && response.status == 204)
-               alert(" קטגוריות אין");
+              console(" קטגוריות אין");
            else
                if (response.ok)
                    return response.json();

@@ -11,12 +11,11 @@ import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import Stage from './stage'
 import AddCategory from './category';
-
-
+import '../../../styles/managment.css'
 import { getCategory } from '../../../api/managment/categoryApi';
 
 
-import '../../../styles/managment.css'
+
 
 const Courses = () => {
     const [CategoryName, setCategoryName] = useState('');

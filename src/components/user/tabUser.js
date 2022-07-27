@@ -27,6 +27,7 @@ export default function NavTabs(props) {
       <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
         <LinkTab label="aboutUs" href="/aboutUs" />
         <LinkTab label="pay" href="/pay" />
+        <LinkTab label="list Courses" href="/listCourses" />
         <LinkTab label="login" href="/"/>
         {/* <LinkTab label="Instructions" href="/Instructions" /> */}
       </Tabs>
